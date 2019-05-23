@@ -1,8 +1,21 @@
 <ul>
   <li
     *ngFor="let friend of friendsNames"
-    [ngStyle]="{ 'font-style': 'italic', color: 'red' }"
+    appTextFormatChange
+    [ngStyle]="{ 'font-style': 'italic', 'background-color': 'yellow' }"
   >
     {{ friend }}
   </li>
 </ul>
+<hr />
+<!-- test case for ngSelectCase example -->
+<ul>
+  <li (click)="setSelectedItem('Student')">Student</li>
+  <li (click)="setSelectedItem('TA')">TA</li>
+</ul>
+<div [ngSwitch]="selectedItem">
+  <div *ngSwitchCase="'Student'"><app-student></app-student></div>
+  <div *ngSwitchCase="'TA'">
+    <app-teaching-assistant></app-teaching-assistant>
+  </div>
+</div>
